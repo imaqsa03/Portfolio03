@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aqsa Imran — Video Editor</title>
+<meta name="description" content="Freelance video editor specializing in trending transitions, beat-synced cuts, and lyric edits for short-form content — remotely, worldwide.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a href="#main" class="visually-hidden">Skip to content</a>
+
+<!-- ============================================================
+     NAV
+     - Logo image is assets/images/logo.png. To use a different
+       version later, just replace that file (keep the same file name)
+       or change the "src" below.
+     ============================================================ -->
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo-link" aria-label="Home">
+      <img src="assets/images/logo.png" alt="Aqsa Imran logo">
+    </a>
+    <nav class="primary-links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span class="availability-chip"><span class="dot" aria-hidden="true"></span> Available for remote projects →</span>
+      <button class="hamburger" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#contact">Contact</a>
+    <span class="availability-chip"><span class="dot" aria-hidden="true"></span> Available for remote projects</span>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================================================
+       HERO
+       - Headline/subtext: just edit the text below.
+       - Showreel video: set HERO_VIDEO in js/projects-data.js —
+         paste a Google Drive link, or point to a file in
+         assets/videos/. See the instructions at the top of that
+         file for exactly how.
+       ============================================================ -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow-line"><span class="rule" aria-hidden="true"></span> Freelance Video Editor</div>
+        <h1 class="hero-headline">I edit videos that keep people watching.</h1>
+        <p class="hero-sub">Freelance video editor specializing in trending transitions, beat-synced cuts, and lyric edits for short-form content — remotely, worldwide.</p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn btn-primary">View My Work →</a>
+          <a href="#contact" class="btn btn-ghost">Let's Work Together</a>
+        </div>
+        <div class="hero-availability"><span class="dot" aria-hidden="true"></span> Available for remote projects</div>
+      </div>
+
+      <div class="showreel" id="showreel">
+        <span class="showreel-frame-label">Showreel</span>
+        <!-- Filled in automatically from HERO_VIDEO in js/projects-data.js -->
+        <div class="showreel-media" id="showreelMedia"></div>
+        <button class="play-btn" id="reelPlay" aria-label="Play showreel with sound">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CREDIBILITY BAR — replace with your real experience/tools
+       ============================================================ -->
+  <section class="cred-bar" aria-label="Quick facts">
+    <div class="wrap cred-grid">
+      <div class="cred-item">
+        <h4>Video Editor</h4>
+        <p>Transitions • Lyric edits • Beat sync • Reels</p>
+      </div>
+      <div class="cred-item">
+        <h4>Remote</h4>
+        <p>Working with clients worldwide</p>
+      </div>
+      <div class="cred-item">
+        <h4>Tools</h4>
+        <p>CapCut Pro • Premiere Pro • Alight Motion</p>
+      </div>
+      <div class="cred-item">
+        <h4>Focus</h4>
+        <p>Timing • Transitions • Pacing • Visuals</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SELECTED WORK
+       This whole grid is built automatically from js/projects-data.js.
+       Don't add project cards here in the HTML — go edit that file
+       instead. Each card plays a silent preview on hover and opens
+       a bigger version with sound when clicked.
+       ============================================================ -->
+  <section class="section-pad" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p class="section-sub">A few edits that show how I think, cut, and time a transition.</p>
+      </div>
+      <div class="work-grid" id="workGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RAW VS. FINAL
+       Two real videos side by side, each with its own play controls —
+       no draggable slider, so nothing can resize or break.
+       To swap either clip, edit COMPARE_RAW / COMPARE_FINAL in
+       js/projects-data.js (works with a Google Drive link or a local file).
+       ============================================================ -->
+  <section class="section-pad section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>See the difference</h2>
+      </div>
+      <div class="compare-grid">
+        <div class="compare-panel">
+          <div class="compare-label">RAW FOOTAGE</div>
+          <div class="compare-media" id="compareRawMedia"></div>
+        </div>
+        <div class="compare-panel">
+          <div class="compare-label">FINAL EDIT</div>
+          <div class="compare-media" id="compareFinalMedia"></div>
+        </div>
+      </div>
+      <p class="compare-caption">Good editing isn't about adding more effects. It's about knowing what to keep, what to remove, and when to make the viewer feel something.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES
+       ============================================================ -->
+  <section class="section-pad" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>What I can edit for you</h2>
+      </div>
+      <div class="services-list">
+        <div class="service-row">
+          <h3>Trending Transitions</h3>
+          <p>Fast, on-beat transition edits built around trending audio and effects.</p>
+        </div>
+        <div class="service-row">
+          <h3>Lyric Videos</h3>
+          <p>Text and captions timed precisely to lyrics or voiceover.</p>
+        </div>
+        <div class="service-row">
+          <h3>Short-form Content</h3>
+          <p>Reels, TikToks and YouTube Shorts cut for retention.</p>
+        </div>
+        <div class="service-row">
+          <h3>Masking &amp; Motion Graphics</h3>
+          <p>Mask transitions, titles, and animated overlays that enhance the edit without overpowering it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY WORK WITH ME
+       ============================================================ -->
+  <section class="section-pad section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>More than just cutting clips</h2>
+      </div>
+      <div class="principles-grid">
+        <div class="principle">
+          <h3>Story first</h3>
+          <p>Every cut should serve the story, message, or viewer.</p>
+        </div>
+        <div class="principle">
+          <h3>Retention mindset</h3>
+          <p>Remove unnecessary pauses and keep the pacing intentional.</p>
+        </div>
+        <div class="principle">
+          <h3>Clean visuals</h3>
+          <p>Effects should enhance the content rather than distract from it.</p>
+        </div>
+        <div class="principle">
+          <h3>Reliable remote workflow</h3>
+          <p>Clear communication, organized files, predictable revisions and professional delivery.</p>
+        </div>
+      </div>
+      <p class="principles-footnote">Remote collaboration shouldn't feel remote.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS
+       ============================================================ -->
+  <section class="section-pad" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How a project runs</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-row">
+          <div class="process-num">01</div>
+          <div><h3>Discover</h3><p>You send the footage, brief, references and goals.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="process-num">02</div>
+          <div><h3>Edit</h3><p>I build the first cut around the story, pacing and intended audience.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="process-num">03</div>
+          <div><h3>Refine</h3><p>We review, revise and polish the edit.</p></div>
+        </div>
+        <div class="process-row">
+          <div class="process-num">04</div>
+          <div><h3>Deliver</h3><p>Final files are exported for the platforms and formats you need.</p></div>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-ghost process-cta">Have a project in mind? Let's talk →</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT — edit copy and add your portrait photo
+       ============================================================ -->
+  <section class="section-pad section-alt" id="about">
+    <div class="wrap about-grid">
+      <div class="about-portrait">
+        <img src="assets/images/me.jpg" alt="Aqsa Imran">
+      </div>
+      <div class="about-copy">
+        <h2 style="margin-bottom:20px; font-size:clamp(1.7rem,3vw,2.2rem);">The person behind the timeline</h2>
+        <p>I'm a freelance video editor focused on turning raw footage into clear, engaging stories.</p>
+        <p>I care about pacing, storytelling, sound, visual rhythm and the small details that make an edit feel intentional.</p>
+        <p>I work remotely with creators, brands and teams who want an editor they can rely on from first cut to final export.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TOOLKIT
+       ============================================================ -->
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Toolkit</h2>
+      </div>
+      <div class="toolkit-list">
+        <span class="toolkit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/></svg> CapCut</span>
+        <span class="toolkit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/></svg> Adobe Premiere Pro</span>
+        <span class="toolkit-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M12 4v16"/></svg> After Effects</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS — hidden by default (no fake quotes were added).
+       To turn on: delete style="display:none;" below and replace the
+       placeholder quotes and names with real ones.
+       ============================================================ -->
+  <section class="section-pad section-alt" id="testimonials" style="display:none;">
+    <div class="wrap">
+      <div class="section-head"><h2>Kind words</h2></div>
+      <div class="testimonials-track">
+        <div class="testimonial-card">
+          <p class="quote">"Short testimonial goes here."</p>
+          <p class="who">— Client Name, Role / Company</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"Short testimonial goes here."</p>
+          <p class="who">— Client Name, Role / Company</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"Short testimonial goes here."</p>
+          <p class="who">— Client Name, Role / Company</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       REMOTE WORK
+       ============================================================ -->
+  <section class="section-pad remote-section">
+    <div class="wrap remote-inner">
+      <div>
+        <h2>Your next editor can be anywhere.</h2>
+        <p>I work remotely with creators, brands, agencies and teams across different time zones.</p>
+      </div>
+      <div class="remote-tags">
+        <span class="remote-tag">Remote</span>
+        <span class="remote-tag">Flexible time zones</span>
+        <span class="remote-tag">Clear communication</span>
+        <span class="remote-tag">Fast feedback</span>
+        <span class="remote-tag">Organized delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT — edit your email/social links here
+       ============================================================ -->
+  <section class="section-pad" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2 class="contact-headline">Have footage? Let's turn it into something people want to watch.</h2>
+        <p class="contact-sub">Tell me what you're working on, what you need edited, and your deadline. I'll get back to you with the next steps.</p>
+        <div class="contact-channels">
+          <!-- Only keep the links you actually want to show; delete the rest -->
+          <a href="mailto:imaqsa03@gmail.com">imaqsa03@gmail.com</a>
+          <a href="https://www.instagram.com/_frn.verse.edits_?igsh=cnprdmd1cGw4NGJu">Instagram</a>
+          <a href="https://www.tiktok.com/@_frnverseedits_?">TikTok</a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-fields" style="display:flex; flex-direction:column; gap:16px;">
+          <div class="form-row">
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input type="text" id="cf-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input type="email" id="cf-email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="cf-type">Project type</label>
+              <select id="cf-type" name="projectType">
+                <option>Transition Edit</option>
+                <option>Lyric Video</option>
+                <option>Short-form / Reels</option>
+                <option>YouTube</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cf-budget">Budget range</label>
+              <select id="cf-budget" name="budget">
+                <option>Under $500</option>
+                <option>$500 – $1,500</option>
+                <option>$1,500+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-timeline">Timeline</label>
+            <select id="cf-timeline" name="timeline">
+              <option>Within a week</option>
+              <option>2–4 weeks</option>
+              <option>1–2 months</option>
+              <option>Ongoing / flexible</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-message">Tell me about the project</label>
+            <textarea id="cf-message" name="message" required placeholder="What's the footage, what's it for, and what do you need from me?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Start a Project →</button>
+        </div>
+        <div class="form-success" id="formSuccess" role="status">
+          Got it — thanks. I'll reply within a couple of days with next steps.
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER — edit your name/copyright line
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-name">Aqsa Imran — Video Editor</div>
+        <div class="footer-sub">Remote • Worldwide</div>
+      </div>
+      <div class="footer-links">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Aqsa Imran</span>
+      <span>Edited with intention.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CASE STUDY MODAL (filled in automatically by js/main.js) -->
+<dialog class="case-study" id="caseModal" aria-labelledby="csTitle">
+  <div class="cs-inner">
+    <div class="cs-media" id="csMedia"></div>
+    <div class="cs-body">
+      <h3 id="csTitle"></h3>
+      <p class="cs-meta" id="csMeta"></p>
+      <div class="cs-block">
+        <h4>The brief</h4>
+        <p id="csBrief"></p>
+      </div>
+      <div class="cs-block">
+        <h4>My role</h4>
+        <p id="csRole"></p>
+      </div>
+      <div class="cs-block">
+        <h4>What I did</h4>
+        <div class="cs-tags" id="csWhat"></div>
+      </div>
+      <div class="cs-block">
+        <h4>Deliverables</h4>
+        <p id="csDeliverables"></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script src="js/projects-data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
